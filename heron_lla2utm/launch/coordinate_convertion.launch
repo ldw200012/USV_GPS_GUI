@@ -1,0 +1,8 @@
+<launch>
+    <!-- The following is denver UTM zone. check your UTM zone at  https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-# -->
+    <!-- <node type="rviz" name="heron_gps_rviz" pkg="rviz" args="-d $(find heron_lla2utm)/rviz/heron_gps.rviz" /> -->
+    <param name="utm_zone" type="int" value="52" />
+    <param name="hemisphere" type="string" value="North" />
+    <node name="lla2utm_converter" type="lla2utm_converter" pkg="heron_lla2utm" output="screen">
+    </node>
+</launch>
