@@ -9,7 +9,7 @@ $ roslaunch heron_lla2utm coordinate_convertion.launch
 ```
 2. Run one of the below commands for different results in <b>Shell #2</b><br>
 
-<b>(Help): To see available arguments</b>
+<b>(Help): </b>To see available arguments
 ```
 $ rosrun heron_gui main_gui.py -h
 ```
