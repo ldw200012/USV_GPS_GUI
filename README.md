@@ -2,6 +2,26 @@
 This repository is set for the testing at KAIST Duck Pond, Daejeon, South-Korea.<br>
 In order to customize this repository for any other region, please follow the last instruction <b>3. CUSTOMIZE FROM SCRATCH</b>
 
+# 1. HOW TO RUN
+1. While GPS Data is being published by the data with topic name /ublox/fix (sensor_msgs::NavSatFix), run below command in <b>Shell #1</b>
+```
+$ roslaunch heron_lla2utm coordinate_convertion.launch
+```
+2. Run one of the below commands for different results in <b>Shell #2</b><br>
+
+<b>(Help): To see available arguments</b>
+```
+$ rosrun heron_gui main_gui.py -h
+```
+<b>(Read): Read and plot the waypoints from USV_GPS_GUI/heron_gui/src/csv_files/<filename>.csv</b>
+```
+$ rosrun heron_gui main_gui.py -m wp_read # <filename> is set to 'square' as default, follow instruction below to customize
+```
+<b>(Export): Use GUI to select waypoints and export into USV_GPS_GUI/heron_gui/src/csv_files/<new_filename>.csv</b>
+```
+$ rosrun heron_gui main_gui.py -m wp_plot # <new_filename> is set to 'square' as default, follow instruction below to customize
+```
+
 # 1. CUSTOMIZATION
 Open <b>USV_GPS_GUI/heron_gui/src/heron_gui/config.py</b> with any code editor.
 1. Choose the map type (Simple / Satellite / Contour view) by comment/uncomment.
@@ -28,18 +48,4 @@ WAYPOINT_COLOR = "black"
 CURRENT_POS_COLOR = "red"
 PATH_TRACK_COLOR = "blue"
 ```
-
-# 2. HOW TO RUN
-```
-$ roslaunch heron_lla2utm coordinate_convertion.launch
-```
-
-```
-$ rosrun heron_gui main_gui.py -<argument> <option>
-```
-  > rosrun heron_gui main_gui.py -h # (Help command to see available arguments)
-  
-  > rosrun heron_gui main_gui.py -m wp_read # (Read the existing file USV_GPS_GUI/heron_gui/src/csv_files/<filename>.csv)
-  
-  > rosrun heron_gui main_gui.py -m wp_plot # (Use GUI to plot and export the waypoints as USV_GPS_GUI/heron_gui/src/csv_files/<filename>.csv)
   
