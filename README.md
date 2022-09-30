@@ -3,7 +3,7 @@ This repository is set for the testing at KAIST Duck Pond, Daejeon, South-Korea.
 In order to customize this repository for any other region, please follow the last instruction <b>3. CUSTOMIZE FROM SCRATCH</b>
 
 # 1. CUSTOMIZATION
-Open USV_GPS_GUI/heron_gui/src/heron_gui/config.py with any code editor.
+Open <b>USV_GPS_GUI/heron_gui/src/heron_gui/config.py</b> with any code editor.
 1. Choose the map type (Simple / Satellite / Contour view) by comment/uncomment.
 ```
 MAP_PATH = os.path.join(root_dir, "../images/map_common.png")
