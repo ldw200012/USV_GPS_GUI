@@ -1,5 +1,4 @@
-# USV_GPS_GUI
-GPS Based USV Map Plotting GUI
+# USV_GPS_GUI: GPS Based USV Map Plotting GUI
 This repository is set for the testing at KAIST Duck Pond, Daejeon, South-Korea.<br>
 In order to customize this repository for any other region, please follow the last instruction <b>3. CUSTOMIZE FROM SCRATCH</b>
 
