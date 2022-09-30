@@ -1,6 +1,6 @@
 # USV_GPS_GUI: GPS Based USV Map Plotting GUI
 This repository is set for the testing at KAIST Duck Pond, Daejeon, South-Korea.<br>
-In order to customize this repository for any other region, please follow the last instruction <b>3. CUSTOMIZE FROM SCRATCH</b>
+Customization instruction for the other regions is soon to be added.
 
 # 1. HOW TO RUN
 1. While GPS Data is being published by the data with topic name /ublox/fix (sensor_msgs::NavSatFix), run below command in <b>Shell #1</b>
