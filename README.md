@@ -1,8 +1,13 @@
 # USV_GPS_GUI
 GPS Based USV Map Plotting GUI
+This repository is set for the testing at KAIST Duck Pond, Daejeon, South-Korea.
+In order to customize this repository for any other region, please follow the last instruction <b>3. CUSTOMIZE FROM SCRATCH</b>
 
-# 1. HOW TO RUN
+# 1. CUSTMONIZATION
+Open USV_GPS_GUI/heron_gui/src/heron_gui/config.py with any code editor.
+* MAP_PATH: 
 
+# 2. HOW TO RUN
 ```
 $ roslaunch heron_lla2utm coordinate_convertion.launch
 ```
