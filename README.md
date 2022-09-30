@@ -6,9 +6,9 @@ GPS Based USV Map Plotting GUI
 ```
 $ roslaunch heron_lla2utm coordinate_convertion.launch
 ```
-```
-$ rosrun heron_gui main_gui.py -m wp_read
-```
 
-- for 'rosrun heron_gui main_gui.py' command, 2 arguments available (-h, -m)
-- '-m' arguments must be rather 'wp_plot' or 'wp_read'
+```
+$ rosrun heron_gui main_gui.py -<argument> <option>
+```
+  - <argument>: h (Help command to see available arguments) | m (Select one of the mode by entering <option> after)
+  - <option>: wp_read (Read the existing file /heron_gui/src/csv_files/<filename>.csv) | wp_plot (Use GUI to plot and export the waypoints as *.csv file)
