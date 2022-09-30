@@ -37,7 +37,7 @@ int main(int argc, char **argv)
   con.RegiHandle(n);
  
   // ros::Subscriber  sub1 = n.subscribe("/utm_pose",1000,&ULConverter::PoseCallback, &con);
-  ros::Subscriber sub2 = n.subscribe("/ublox/fix", 1000, &ULConverter::GPSCallback, &con);
+  ros::Subscriber sub2 = n.subscribe("/ublox_gps/fix", 1000, &ULConverter::GPSCallback, &con);
 
   ros::spin();
 
