@@ -13,11 +13,11 @@ $ roslaunch heron_lla2utm coordinate_convertion.launch
 ```
 $ rosrun heron_gui main_gui.py -h
 ```
-<b>(Read):</b> Read and plot the waypoints from <b>USV_GPS_GUI/heron_gui/src/csv_files/<filename>.csv</b>
+<b>(Read):</b> Read and plot the waypoints from <b>./heron_gui/src/csv_files/<filename>.csv</b>
 ```
 $ rosrun heron_gui main_gui.py -m wp_read # <filename> is set to 'square' as default, follow instruction below to customize
 ```
-<b>(Export):</b> Use GUI to select waypoints and export into <b>USV_GPS_GUI/heron_gui/src/csv_files/<new_filename>.csv</b>
+<b>(Export):</b> Use GUI to select waypoints and export into <b>./heron_gui/src/csv_files/<new_filename>.csv</b>
 ```
 $ rosrun heron_gui main_gui.py -m wp_plot # <new_filename> is set to 'export_data' as default, follow instruction below to customize
 ```
