@@ -22,30 +22,9 @@ $ rosrun heron_gui main_gui.py -m wp_read # <filename> is set to 'square' as def
 $ rosrun heron_gui main_gui.py -m wp_plot # <new_filename> is set to 'export_data' as default, follow instruction below to customize
 ```
 
-# 1. CUSTOMIZATION
-Open <b>USV_GPS_GUI/heron_gui/src/heron_gui/config.py</b> with any code editor.
-1. Choose the map type (Simple / Satellite / Contour view) by comment/uncomment.
-```
-MAP_PATH = os.path.join(root_dir, "../images/map_common.png")
-# MAP_PATH = os.path.join(root_dir, "../images/map_satel.png")
-# MAP_PATH = os.path.join(root_dir, "../images/map_contour.png")
-```
-2. Write the correct filepath for <filename>.csv files.
-```
-# Waypoint CSV File Path
-CSV_PATH = os.path.join(root_dir, "../csv_files/<filename>.csv") # Make sure to place <filename>.csv in USV_GPS_GUI/heron_gui/src/csv_files/
-EXPORT_CSV_PATH = os.path.join(root_dir, "../csv_files/<new_filename>.csv")
-```
-3. Check if the name of the rostopic publishing GPS data is written correctly. If not, change the name.
-```
-# Subscriber Name
-GPS_SUBSCRIBER = "/ublox_fix/gps"
-```
-4. Just in case you want to change the color of the plot.
-```
-# COLOR PALETTE
-WAYPOINT_COLOR = "black"
-CURRENT_POS_COLOR = "red"
-PATH_TRACK_COLOR = "blue"
-```
+# 2. CUSTOMIZE
+## case 1: Change GPS-streaming ROSTopic name
+## case 2: Change map file
+## case 3: Change *.csv file
+## case 4: Change GUI plot color
   
