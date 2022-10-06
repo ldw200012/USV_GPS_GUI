@@ -36,12 +36,12 @@ class Heron_GUI(tk.Tk):
         ts = message_filters.TimeSynchronizer([self.sub_lla, self.sub_utm], 10)
         ts.registerCallback(self.callback)
 
-        self.ann_list = []
-        self.ann_point_list = []
-        self.create_gui()
+        self.wp_points = []
+        self.wp_annots = []
+        self.create_gui(mode)
 
     # CREATE GUI (change 'config.py' for customization)
-    def create_gui(self):
+    def create_gui(self, mode):
         topFrame = tk.Frame(self, width=720, height=720)
         topFrame.pack_propagate(0)
         topFrame.pack(side=tk.TOP)
@@ -114,6 +114,27 @@ class Heron_GUI(tk.Tk):
     # SAVE CURRENT POSE as a waypoint
     def handle_click(self, idx):
         self.waypoints[idx-1] = np.append(self.lla_data, self.utm_data)
+
+        # Delete Waypoints drawn in previous frame
+        for _ in self.wp_points:
+            _.remove()
+        for _ in self.wp_annots:
+            _.remove()
+        self.wp_points = []
+        self.wp_annots = []
+
+        # Draw new Waypoins 
+        for idx, wp in enumerate(self.waypoints):
+            if np.sum(wp) != 0:
+                local_x = wp[3] - CFG.MAP_ORIGIN_UTM[0]
+                local_y = wp[4] - CFG.MAP_ORIGIN_UTM[1]
+
+                wp_point = self.a.scatter(local_x, local_y, color=CFG.WAYPOINT_COLOR, marker='.', edgecolors='none')
+                wp_annot = self.a.annotate("WP_{}".format(idx+1), (local_x, local_y), color="white")
+
+                self.wp_points.append(wp_point)
+                self.wp_annots.append(wp_annot)
+
         
         # Print the current status of set waypoints in terminal (Optional)
         # for idx, wp in enumerate(self.waypoints):
@@ -128,6 +149,7 @@ class Heron_GUI(tk.Tk):
             if np.sum(wp) != 0:
                 writer.writerow(wp)
         f.close()
+        print("WAYPOINTS are saved into CSV file")
 
     def callback(self, data_lla, data_utm):
         # Set Current Position as LLA & UTM & Local_XYZ(the point position on map image (m))
@@ -154,28 +176,6 @@ class Heron_GUI(tk.Tk):
         if self.mode == 'wp_read':
             # Show Path Accumulation
             self.a.scatter(self.local_x_arr, self.local_y_arr, color=CFG.PATH_TRACK_COLOR, marker='.', edgecolors='none')
-
-        if self.mode == 'wp_plot':
-
-            # Delete Waypoints drawn in previous frame
-            for _ in self.wp_points:
-                _.remove()
-            for _ in self.wp_annots:
-                _.remove()
-            self.wp_points = []
-            self.wp_annots = []
-
-            # Draw new Waypoins 
-            for idx, wp in enumerate(self.waypoints):
-                if np.sum(wp) != 0:
-                    local_x = wp[3] - CFG.MAP_ORIGIN_UTM[0]
-                    local_y = wp[4] - CFG.MAP_ORIGIN_UTM[1]
-
-                    wp_point = self.a.scatter(local_x, local_y, color=CFG.WAYPOINT_COLOR, marker='.', edgecolors='none')
-                    wp_annot = self.a.annotate("WP_{}".format(idx+1), (local_x, local_y), color="white")
-
-                    self.wp_points.append(wp_point)
-                    self.wp_annots.append(wp_annot)
 
         # Current Position on map (m)
         if self._scat is not None:
