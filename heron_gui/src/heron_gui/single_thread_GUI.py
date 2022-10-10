@@ -155,7 +155,6 @@ class Heron_GUI(tk.Tk):
 
 
         self.utm_data = self.lla2utm(self.lla_data)
-        print(self.utm_data)
         self.utm_data = np.around(self.utm_data, decimals=CFG._PRECISION)
 
         self.pos_data_prev = self.pos_data
@@ -194,7 +193,6 @@ class Heron_GUI(tk.Tk):
         # Zone
         m_nUTM_Zone = np.int(np.floor(lon0_f/6)+31)
 
-        print("Transformation Done")
         return [m_dUTM_X, m_dUTM_Y, 0]
 
     def update(self):
@@ -233,6 +231,8 @@ if __name__ == '__main__':
                 print("Current Mode is set to", currentValue)
                 window = Heron_GUI(currentValue)
                 window.mainloop()
+            else:
+                print("You need a mandatory arrgument -m: wp_plot / wp_read")
 
     except getopt.error as err:
         print(str(err))
