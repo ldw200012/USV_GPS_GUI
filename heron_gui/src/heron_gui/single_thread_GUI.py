@@ -165,12 +165,15 @@ class Heron_GUI(tk.Tk):
         self.local_y_arr = np.append(self.local_y_arr, self.pos_data[1])
 
     def lla2utm(self, lla_data):
-        dLat = lla_data[0] * np.pi/180
-        dLon = lla_data[1] * np.pi/180
+        dLatitude = lla_data[0]
+        dLongitude = lla_data[1]
 
-        lon0_f = np.floor(dLongitude/6)*6+3 # reference longitude in degrees
-		lon0 = lon0_f*np.pi/180             # in radians
-		k0 = 0.9996                         # scale on central meridian
+        dLat = dLatitude * np.pi/180
+        dLon = dLongitude * np.pi/180
+
+        lon0_f = np.floor(dLongitude/6)*6+3
+        lon0 = lon0_f*np.pi/180
+        k0 = 0.9996
 
 		FE = 500000                         # false easting
 		FN = (dLatitude < 0)*10000000       # false northing
