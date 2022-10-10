@@ -174,9 +174,8 @@ class Heron_GUI(tk.Tk):
         lon0_f = np.floor(dLongitude/6)*6+3
         lon0 = lon0_f*np.pi/180
         k0 = 0.9996
-
-		FE = 500000
-		FN = (dLatitude < 0)*10000000
+        FE = 500000
+        FN = (dLatitude < 0)*10000000
 
         Wa = 6378137
         We = 0.081819190842965
