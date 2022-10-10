@@ -184,9 +184,7 @@ class Heron_GUI(tk.Tk):
         WT = np.power(np.tan(dLat), 2)
         WC = (np.power(We,2)/(1-np.power(We,2)))*np.power(np.cos(dLat),2)
         WLA = (dLon - lon0)*np.cos(dLat)
-        WM = (Wa*((1 - np.power(We,2)/4 - 3*np.power(We,4)/64 - 5*np.power(We,6)/256)*dLat
-		- (3*np.power(We,2)/8 + 3*np.power(We,4)/32 + 45*np.power(We,6)/1024)*np.sin(2*dLat) 
-		+ (15*np.power(We,4)/256 + 45*np.power(We,6)/1024)*np.sin(4*dLat) - (35*np.power(We,6)/3072)*np.sin(6*dLat)) )
+        WM = (Wa*((1 - np.power(We,2)/4 - 3*np.power(We,4)/64 - 5*np.power(We,6)/256)*dLat - (3*np.power(We,2)/8 + 3*np.power(We,4)/32 + 45*np.power(We,6)/1024)*np.sin(2*dLat) + (15*np.power(We,4)/256 + 45*np.power(We,6)/1024)*np.sin(4*dLat) - (35*np.power(We,6)/3072)*np.sin(6*dLat)) )
 
         Weps = 0.006739496742333
         # Easting
