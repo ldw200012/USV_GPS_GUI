@@ -179,8 +179,8 @@ class Heron_GUI(tk.Tk):
 
         Wa = 6378137
         We = 0.081819190842965
-        WN = Wa/np.sqrt( 1 - np.power(We,2)*np.power(np.sin(dLat),2) )
-		WT = np.power(np.tan(dLat),2)
+        WN = Wa/np.sqrt( 1 - np.power(We,2)*np.power(np.sin(dLat),2))
+        WT = np.power(np.tan(dLat), 2)
         WC = (np.power(We,2)/(1-np.power(We,2)))*np.power(np.cos(dLat),2)
 		WLA = (dLon - lon0)*np.cos(dLat)
         WM = (Wa*((1 - np.power(We,2)/4 - 3*np.power(We,4)/64 - 5*np.power(We,6)/256)*dLat
